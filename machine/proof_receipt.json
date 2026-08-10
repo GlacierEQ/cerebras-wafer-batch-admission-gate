@@ -1,0 +1,31 @@
+{
+  "schema": "glaciereq.proof-receipt.v1",
+  "repository": "GlacierEQ/cerebras-wafer-batch-admission-gate",
+  "source_sha": "30015ae77cb6a53a8f1a0e63bf2a430c01ce94b7b0966b073cea99454eaa4f99",
+  "proof_id": "elite-cerebras-wafer-batch-admission-gate-1786356644",
+  "environment": {
+    "python": "/Users/kcbflux/.local/bin/python3.11",
+    "PYTHONPATH": "/Users/kcbflux/GlacierEQ_Swarm/job-app/repos/cerebras-wafer-batch-admission-gate:/Users/kcbflux/GlacierEQ_Swarm/job-app/repos/cerebras-wafer-batch-admission-gate/src",
+    "entry": "unittest"
+  },
+  "tests": [
+    "/Users/kcbflux/.local/bin/python3.11 -m unittest discover -s tests -v (x2)"
+  ],
+  "adversarial_tests": [
+    "tests/test_adversarial.py"
+  ],
+  "runtime": {
+    "operate": "scripts/operate.py (x2)",
+    "dual_run_ok": true,
+    "proof_dual_run_ok": true
+  },
+  "result": "PASS",
+  "limitations": [
+    "not production deployed",
+    "reference implementation only"
+  ],
+  "timestamp": "2026-08-10T10:10Z",
+  "artifact_hashes": {
+    "operability_receipt": "2965667e10274536503a919236483a6a49040a1ea86a4a22c3fe9c2faef11754"
+  }
+}

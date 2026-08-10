@@ -1,0 +1,10 @@
+[project]
+name = "cerebras-wafer-batch-admission-gate"
+version = "0.0.1"
+description = "Scaffold: Wafer Batch Admission Gate (independent Cerebras lens)"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

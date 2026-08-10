@@ -1,0 +1,26 @@
+{
+  "schema": "glaciereq.operability-receipt.v1",
+  "repository": "GlacierEQ/cerebras-wafer-batch-admission-gate",
+  "at": "2026-08-10T10:10Z",
+  "source_sha": "30015ae77cb6a53a8f1a0e63bf2a430c01ce94b7b0966b073cea99454eaa4f99",
+  "entry": "scripts/operate.py",
+  "primary_output": {
+    "module": "wafer_batch_admission_gate",
+    "ok": true,
+    "repository": "GlacierEQ/cerebras-wafer-batch-admission-gate",
+    "smoke": {
+      "args": [
+        "WaferBatchAdmissionGateRequest(subject_i"
+      ],
+      "content_checked": true,
+      "invoked": true,
+      "kind": "class",
+      "method": "evaluate",
+      "module_local": true,
+      "name": "Mechanism",
+      "result": "WaferBatchAdmissionGateReceipt(decision=<Decision.ALLOW: 'ALLOW'>, reasons=('scaffold_allow',), digest='de5a200a89430d2dec7318cf5aea51ee466c45d752e842d6d852e6bed15c045c', metrics={'scaffold': True, 'payload_keys': [], 'budget': 1.0})"
+    }
+  },
+  "dual_run_ok": true,
+  "result": "PASS"
+}

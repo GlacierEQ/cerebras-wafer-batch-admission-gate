@@ -1,0 +1,12 @@
+{
+  "schema": "glaciereq.repo-capabilities.v1",
+  "repository": "GlacierEQ/cerebras-wafer-batch-admission-gate",
+  "capabilities": [
+    {
+      "id": "wafer-batch-admission-gate",
+      "name": "Wafer Batch Admission Gate",
+      "status": "SCAFFOLD",
+      "module": "src/wafer_batch_admission_gate.py"
+    }
+  ]
+}
