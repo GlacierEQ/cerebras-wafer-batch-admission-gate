@@ -1,10 +1,17 @@
+[build-system]
+requires=["setuptools"]
+build-backend="setuptools.build_meta"
 [project]
-name = "cerebras-wafer-batch-admission-gate"
-version = "0.0.1"
-description = "Scaffold: Wafer Batch Admission Gate (independent Cerebras lens)"
-requires-python = ">=3.11"
-dependencies = []
-
+name="cerebras-wafer-batch-admission-gate"
+version="1.0.0"
+description="Inference batch admission against explicit latency, quality, and capacity envelopes"
+requires-python=">=3.11"
+dependencies=[]
+[project.scripts]
+batch-admission="wafer_batch_admission_gate:cli"
+[tool.setuptools]
+py-modules=["wafer_batch_admission_gate"]
+package-dir={""="src"}
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+testpaths=["tests"]
+pythonpath=["src"]

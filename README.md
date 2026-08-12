@@ -1,51 +1,36 @@
-# Wafer Batch Admission Gate
+# Wafer Batch Admission
 
-Independent GlacierEQ portfolio exhibit aligned to **Cerebras** operating themes.
+Independent GlacierEQ inference admission controller aligned to extreme-throughput serving problems.
 
 > **Not affiliated.** This repository is not affiliated with, endorsed by, employed by, or deployed at Cerebras.
-> No proprietary access, production deployment, customer impact, or company partnership is claimed.
 
-## Bottleneck (GlacierEQ hypothesis)
+## Purpose
 
-Integrating extreme-speed inference into reliable, broadly available production systems.
+Admit inference batches only when the batch fits a declared latency, quality, throughput, queue, and size envelope.
 
-**Brick wall:** Maintaining model breadth, availability, distributed-system efficiency, and quality as demand grows.
+## Runtime
 
-**Observed public pressure (snapshot hypothesis):** Ultra-fast inference is being used to improve interactive reasoning and agent quality.
+The controller evaluates predicted batch behavior against explicit service bounds. Rejections contain every violated metric with observed value, operator, limit, and unit. Accepted batches contain quantitative headroom for each bound and deterministic envelope/headroom fingerprints.
 
-## Innovation mechanism
+It enforces:
 
-**Wafer Batch Admission Gate** — Admit batches only under a declared latency/quality envelope; emit rejection receipts with exact violated bounds.
+- maximum batch size
+- maximum predicted latency
+- minimum predicted quality score
+- required throughput not exceeding available throughput
+- maximum queue depth
+- request expiry and bounded evaluation work
+- fail-closed schema validation
 
-## Target roles
+## Proof
 
-- Applied AI Systems Architect
-- Forward-Deployed Engineer
-- AI Infrastructure / Governance Engineer
+```bash
+python -m pytest -q
+python scripts/operate.py
+```
 
-## Application move
+Install with `python -m pip install .`; the JSON CLI is `batch-admission`.
 
-Design a provider comparison that tests whether lower latency enables better iterative reasoning.
+## Boundary
 
-## Current scaffold state
-
-This leaf is a **scaffold**: contracts, tests, and a stub mechanism exist so another engineer/AI can fill production-grade code without inventing company affiliation.
-
-| Surface | Path |
-|---------|------|
-| Mechanism stub | `src/wafer_batch_admission_gate.py` |
-| Operate entry | `scripts/operate.py` |
-| Contract tests | `tests/` |
-| Target contract | `machine/target-contract.json` |
-| **AI fill-in brief** | **`DEV_UP_INSTRUCTIONS.md`** |
-| Issue contract | `ISSUE_CONTRACT.md` |
-
-## Non-claims
-
-- No Cerebras employment, endorsement, proprietary data, or production use
-- No customer, revenue, latency, or scale claims without separate receipts
-- Scaffold tests define **intended behavior**, not verified production excellence
-
-## Next gate
-
-Run with real access and record model, version, and request identifiers.
+This is a portable admission-control kernel using caller-supplied predictions/capacity. It does not claim Cerebras infrastructure access or proprietary performance telemetry.

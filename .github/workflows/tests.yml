@@ -11,5 +11,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      - run: python -m pip install --no-build-isolation .
       - run: python -m pytest -q
       - run: python scripts/operate.py
+      - name: installed CLI smoke
+        run: |
+          printf '%s' '{"subject_id":"ci","budget":4,"payload":{"batch_size":32,"predicted_latency_ms":7,"predicted_quality_score":0.98,"required_throughput_tps":4000,"available_throughput_tps":10000,"queue_depth":1,"max_latency_ms":12,"min_quality_score":0.95,"max_batch_size":128,"max_queue_depth":8}}' | batch-admission > /tmp/batch.json
+          python -c 'import json; d=json.load(open("/tmp/batch.json")); assert d["decision"] == "ALLOW"; assert d["result"]["admitted"] is True'
